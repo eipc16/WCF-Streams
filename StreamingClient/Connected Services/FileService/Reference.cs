@@ -20,6 +20,55 @@ namespace StreamingClient.FileService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FileServiceInterface/getStream", ReplyAction="http://tempuri.org/FileServiceInterface/getStreamResponse")]
         System.Threading.Tasks.Task<System.IO.Stream> getStreamAsync(string name);
+        
+        // CODEGEN: Generating message contract since the wrapper name (RequestFileMessage) of message RequestFileMessage does not match the default value (getMStream)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FileServiceInterface/getMStream", ReplyAction="http://tempuri.org/FileServiceInterface/getMStreamResponse")]
+        StreamingClient.FileService.ResponseFileMessage getMStream(StreamingClient.FileService.RequestFileMessage request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FileServiceInterface/getMStream", ReplyAction="http://tempuri.org/FileServiceInterface/getMStreamResponse")]
+        System.Threading.Tasks.Task<StreamingClient.FileService.ResponseFileMessage> getMStreamAsync(StreamingClient.FileService.RequestFileMessage request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RequestFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class RequestFileMessage {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string name;
+        
+        public RequestFileMessage() {
+        }
+        
+        public RequestFileMessage(string name) {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ResponseFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ResponseFileMessage {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string name;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public long size;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.IO.Stream data;
+        
+        public ResponseFileMessage() {
+        }
+        
+        public ResponseFileMessage(string name, long size, System.IO.Stream data) {
+            this.name = name;
+            this.size = size;
+            this.data = data;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +104,32 @@ namespace StreamingClient.FileService {
         
         public System.Threading.Tasks.Task<System.IO.Stream> getStreamAsync(string name) {
             return base.Channel.getStreamAsync(name);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StreamingClient.FileService.ResponseFileMessage StreamingClient.FileService.FileServiceInterface.getMStream(StreamingClient.FileService.RequestFileMessage request) {
+            return base.Channel.getMStream(request);
+        }
+        
+        public string getMStream(ref string name, out long size, out System.IO.Stream data) {
+            StreamingClient.FileService.RequestFileMessage inValue = new StreamingClient.FileService.RequestFileMessage();
+            inValue.name = name;
+            StreamingClient.FileService.ResponseFileMessage retVal = ((StreamingClient.FileService.FileServiceInterface)(this)).getMStream(inValue);
+            name = retVal.name;
+            data = retVal.data;
+            size = retVal.size;
+            return name;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<StreamingClient.FileService.ResponseFileMessage> StreamingClient.FileService.FileServiceInterface.getMStreamAsync(StreamingClient.FileService.RequestFileMessage request) {
+            return base.Channel.getMStreamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<StreamingClient.FileService.ResponseFileMessage> getMStreamAsync(string name) {
+            StreamingClient.FileService.RequestFileMessage inValue = new StreamingClient.FileService.RequestFileMessage();
+            inValue.name = name;
+            return ((StreamingClient.FileService.FileServiceInterface)(this)).getMStreamAsync(inValue);
         }
     }
 }

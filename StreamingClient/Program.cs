@@ -12,12 +12,23 @@ namespace StreamingClient
     {
         static void Main(string[] args)
         {
+            //Simple file download
             FileServiceInterfaceClient client = new FileServiceInterfaceClient();
             string filePath = Path.Combine(System.Environment.CurrentDirectory, "client.png");
 
             Console.WriteLine("Starting getStream()");
             Stream stream = client.getStream("image.png");
             SaveFile(stream, filePath);
+
+            //Download with response body
+            Stream fs = null;
+            long size = 0;
+            string name = "image.png";
+            filePath = Path.Combine(System.Environment.CurrentDirectory, "client2.png");
+            name = client.getMStream(ref name, out size, out fs);
+            SaveFile(fs, filePath);
+            Console.WriteLine($"End of getMStream. Got file named: {name} of size {size}");
+
 
             client.Close();
             Console.WriteLine("\nPress <ENTER> to exit!");
