@@ -220,8 +220,8 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:9005/MainService?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:9005/MainService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9006/Calculations?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:9006/Calculations?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="CalculateServiceInterface_calcFactorial_InputMessage">
@@ -239,15 +239,6 @@
   <wsdl:message name="CalculateServiceInterface_returnCalculate_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:returnCalculate" />
   </wsdl:message>
-  <wsdl:message name="MainServiceInterface_SyncFunction_InputMessage">
-    <wsdl:part name="parameters" element="tns:SyncFunction" />
-  </wsdl:message>
-  <wsdl:message name="MainServiceInterface_SyncFunction_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SyncFunctionResponse" />
-  </wsdl:message>
-  <wsdl:message name="MainServiceInterface_ASyncFunction_InputMessage">
-    <wsdl:part name="parameters" element="tns:ASyncFunction" />
-  </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="CalculateServiceInterface">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="calcFactorial">
       <wsdl:input wsaw:Action="http://tempuri.org/CalculateServiceInterface/calcFactorial" message="tns:CalculateServiceInterface_calcFactorial_InputMessage" />
@@ -261,15 +252,6 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="returnCalculate">
       <wsdl:output wsaw:Action="http://tempuri.org/CalculateServiceInterface/returnCalculate" message="tns:CalculateServiceInterface_returnCalculate_OutputCallbackMessage" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:portType name="MainServiceInterface">
-    <wsdl:operation name="SyncFunction">
-      <wsdl:input wsaw:Action="http://tempuri.org/MainServiceInterface/SyncFunction" message="tns:MainServiceInterface_SyncFunction_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/MainServiceInterface/SyncFunctionResponse" message="tns:MainServiceInterface_SyncFunction_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ASyncFunction">
-      <wsdl:input wsaw:Action="http://tempuri.org/MainServiceInterface/ASyncFunction" message="tns:MainServiceInterface_ASyncFunction_InputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_CalculateServiceInterface" type="tns:CalculateServiceInterface">
@@ -308,24 +290,6 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_MainServiceInterface" type="tns:MainServiceInterface">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="SyncFunction">
-      <soap:operation soapAction="http://tempuri.org/MainServiceInterface/SyncFunction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ASyncFunction">
-      <soap:operation soapAction="http://tempuri.org/MainServiceInterface/ASyncFunction" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-  </wsdl:binding>
   <wsdl:service name="CalculateService">
     <wsdl:port name="WSDualHttpBinding_CalculateServiceInterface" binding="tns:WSDualHttpBinding_CalculateServiceInterface">
       <soap12:address location="http://localhost:9006/Calculations/endpoint_Calculations" />
@@ -335,11 +299,6 @@
           <Upn>LAPTOP-3O30400M\epicm</Upn>
         </Identity>
       </wsa10:EndpointReference>
-    </wsdl:port>
-  </wsdl:service>
-  <wsdl:service name="MainService">
-    <wsdl:port name="BasicHttpBinding_MainServiceInterface" binding="tns:BasicHttpBinding_MainServiceInterface">
-      <soap:address location="http://localhost:9005/MainService/endpoint_MainService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

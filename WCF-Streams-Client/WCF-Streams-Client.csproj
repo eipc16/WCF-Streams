@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculateHandler.cs" />
+    <Compile Include="Connected Services\CalculateService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\MainService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -54,6 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\CalculateService\CalculateService.wsdl" />
+    <None Include="Connected Services\CalculateService\Calculations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CalculateService\Calculations1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\MainService\MainService.wsdl" />
     <None Include="Connected Services\MainService\MainService.xsd">
       <SubType>Designer</SubType>
@@ -66,12 +79,17 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CalculateCallback\CalculateCallback.csproj">
+      <Project>{858910D3-F061-4390-BA63-F72F469E1181}</Project>
+      <Name>CalculateCallback</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCF-Streams\WCF-Streams.csproj">
       <Project>{C16C7EC1-691B-4B4B-941D-15DA7F4484B9}</Project>
       <Name>WCF-Streams</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CalculateService\" />
     <WCFMetadataStorage Include="Connected Services\MainService\" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +103,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\MainService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculateService\Calculations.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculateService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculateService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CalculateService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

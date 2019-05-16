@@ -12,6 +12,78 @@ namespace WCF_Streams_Client.MainService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MainService.CalculateServiceInterface", CallbackContract=typeof(WCF_Streams_Client.MainService.CalculateServiceInterfaceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    public interface CalculateServiceInterface {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/CalculateServiceInterface/calcFactorial")]
+        void calcFactorial(long n);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/CalculateServiceInterface/calcFactorial")]
+        System.Threading.Tasks.Task calcFactorialAsync(long n);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CalculateServiceInterface/calculate", ReplyAction="http://tempuri.org/CalculateServiceInterface/calculateResponse")]
+        void calculate(int secs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CalculateServiceInterface/calculate", ReplyAction="http://tempuri.org/CalculateServiceInterface/calculateResponse")]
+        System.Threading.Tasks.Task calculateAsync(int secs);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface CalculateServiceInterfaceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/CalculateServiceInterface/returnFactorial")]
+        void returnFactorial(long n);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/CalculateServiceInterface/returnCalculate")]
+        void returnCalculate(string result);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface CalculateServiceInterfaceChannel : WCF_Streams_Client.MainService.CalculateServiceInterface, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CalculateServiceInterfaceClient : System.ServiceModel.DuplexClientBase<WCF_Streams_Client.MainService.CalculateServiceInterface>, WCF_Streams_Client.MainService.CalculateServiceInterface {
+        
+        public CalculateServiceInterfaceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public CalculateServiceInterfaceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public CalculateServiceInterfaceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public CalculateServiceInterfaceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public CalculateServiceInterfaceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void calcFactorial(long n) {
+            base.Channel.calcFactorial(n);
+        }
+        
+        public System.Threading.Tasks.Task calcFactorialAsync(long n) {
+            return base.Channel.calcFactorialAsync(n);
+        }
+        
+        public void calculate(int secs) {
+            base.Channel.calculate(secs);
+        }
+        
+        public System.Threading.Tasks.Task calculateAsync(int secs) {
+            return base.Channel.calculateAsync(secs);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MainService.MainServiceInterface")]
     public interface MainServiceInterface {
         

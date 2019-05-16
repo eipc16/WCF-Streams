@@ -54,6 +54,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CalculateCallback\CalculateCallback.csproj">
+      <Project>{858910d3-f061-4390-ba63-f72f469e1181}</Project>
+      <Name>CalculateCallback</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCF-Streams\WCF-Streams.csproj">
       <Project>{c16c7ec1-691b-4b4b-941d-15da7f4484b9}</Project>
       <Name>WCF-Streams</Name>
