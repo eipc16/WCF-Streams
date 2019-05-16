@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WCF_Streams_Host.MainServiceReference {
+namespace WCF_Streams_Client.MainService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MainServiceReference.MainServiceInterface")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MainService.MainServiceInterface")]
     public interface MainServiceInterface {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MainServiceInterface/SyncFunction", ReplyAction="http://tempuri.org/MainServiceInterface/SyncFunctionResponse")]
@@ -29,12 +29,12 @@ namespace WCF_Streams_Host.MainServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface MainServiceInterfaceChannel : WCF_Streams_Host.MainServiceReference.MainServiceInterface, System.ServiceModel.IClientChannel {
+    public interface MainServiceInterfaceChannel : WCF_Streams_Client.MainService.MainServiceInterface, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MainServiceInterfaceClient : System.ServiceModel.ClientBase<WCF_Streams_Host.MainServiceReference.MainServiceInterface>, WCF_Streams_Host.MainServiceReference.MainServiceInterface {
+    public partial class MainServiceInterfaceClient : System.ServiceModel.ClientBase<WCF_Streams_Client.MainService.MainServiceInterface>, WCF_Streams_Client.MainService.MainServiceInterface {
         
         public MainServiceInterfaceClient() {
         }

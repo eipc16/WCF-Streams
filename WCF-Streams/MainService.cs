@@ -14,17 +14,17 @@ namespace WCF_Streams
     {
         public void ASyncFunction(string data)
         {
-            Console.Write("...{0}: Asynchronous function: START");
-            Thread.Sleep(3000);
-            Console.Write("...{0}: Asynchronous function: STOP");
+            Console.WriteLine($"...{data}: Asynchronous function: START");
+            Thread.Sleep(4000);
+            Console.WriteLine($"...{data}: Asynchronous function: STOP");
             return;
         }
 
         public void SyncFunction(string data)
         {
-            Console.Write("...{0}: Synchronous function: START");
-            Thread.Sleep(3000);
-            Console.Write("...{0}: Synchronous function: STOP");
+            Console.WriteLine($"...{data}: Synchronous function: START");
+            Thread.Sleep(2000);
+            Console.WriteLine($"...{data}: Synchronous function: STOP");
             return;
         }
     }
